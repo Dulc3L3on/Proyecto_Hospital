@@ -9,7 +9,7 @@ package Entidades;
  *
  * @author phily
  */
-public class Laboratorista extends Usuario{
+public class Laboratorista /*extends Usuario*/{
     
     public void subirResultado(){
     
@@ -17,7 +17,7 @@ public class Laboratorista extends Usuario{
         
     }
     
-    public void 
+    //public void 
     
     
 }

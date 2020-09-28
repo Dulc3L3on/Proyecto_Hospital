@@ -6,12 +6,14 @@
 package Manejadores.Archivos;
 
 import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
 
 
 
@@ -20,10 +22,10 @@ import org.w3c.dom.Document;
  * @author phily
  */
 public class ManejadorXML {
-    ClasificadorArchivo clasificador;
+    CargaDeDatos clasificador;
     
     public ManejadorXML(Connection conexionDB){//recuerda que este solo deberá ser ejecutado cuando la DB esté vacía...
-        clasificador = new ClasificadorArchivo(conexionDB);
+        clasificador = new CargaDeDatos(conexionDB);
     }
     
     
@@ -34,23 +36,18 @@ public class ManejadorXML {
              DocumentBuilder constructorDocumento = fabricaDocumento.newDocumentBuilder();
              Document documento = constructorDocumento.parse(new File(nombreArchivo));
              
-             documento.getDocumentElement().normalize();
+             documento.getDocumentElement().normalize();             
              
-             
-             clasificador.descargar(documento.getNodeName(), documento);
+             clasificador.clasificar(documento.getNodeName(), documento);
             
         }catch(ParserConfigurationException exc){
             JOptionPane.showMessageDialog(null, "No puedo transformarse el archivo", "error de conversion", JOptionPane.ERROR_MESSAGE);
         }   
         
-        catch(Exception exc){
+        catch(IOException | SAXException exc){
             JOptionPane.showMessageDialog(null, "Ha surgido un error al\nintentar leer el XML", "error de lectura", JOptionPane.ERROR_MESSAGE);            
         }                             
-    }
-    
-    
-    
-    
+    }          
     
 }
 /*

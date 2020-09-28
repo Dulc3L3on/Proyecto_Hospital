@@ -11,6 +11,17 @@ package Entidades;
  */
 public class Usuario {
     
+    public String codigo;
+    public String nombre;
+    public String DPI;
+    
+    public Usuario(String elCodigo, String elNombre, String elDPI){
+        codigo = elCodigo;
+        nombre= elNombre;
+        DPI= elDPI;        
+    }
+    
+    
     public void registrarse (){
     
     }

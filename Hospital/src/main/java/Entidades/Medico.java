@@ -9,7 +9,7 @@ package Entidades;
  *
  * @author phily
  */
-public class Medico extends Usuario{
+public class Medico /*extends Usuario*/{
  
     public void reagendarCita(){
     

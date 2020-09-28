@@ -9,6 +9,6 @@ package Entidades;
  *
  * @author phily
  */
-public class Paciente extends Usuario{
+public class Paciente /*extends Usuario*/{
     
 }

@@ -9,6 +9,12 @@ package Entidades;
  *
  * @author phily
  */
-public class Administrador {
+public class Administrador /*extends Trabajador*/{
+    
+    public Administrador(){
+    
+    }
+    
+    
     
 }
